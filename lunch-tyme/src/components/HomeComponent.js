@@ -24,10 +24,17 @@ class Home extends Component {
     }
 
     render() {
+
         return (
             <div className="App">
                 <div className="main">{this.state.restaurantInfo.map(restaurant =>
-                    <div>{restaurant.name}</div>
+                    <div className="restaurant-block">
+                        <img src={restaurant.backgroundImageURL} alt={restaurant.category}></img>
+                        <div className="restaurant-name-and-category">
+                            <div className="restaurant-name">{restaurant.name}</div>
+                            <div className="restaurant-category">{restaurant.category}</div>
+                        </div>
+                    </div>
                 )}</div>
             </div>
         );
