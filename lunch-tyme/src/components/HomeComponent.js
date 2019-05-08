@@ -16,7 +16,7 @@ class Home extends Component {
             })
             .then((data) => {
                 console.log(data);
-                data.restaurants.map(info => restaurantNames.push(info.name))
+                data.restaurants.map(info => restaurantNames.push(info))
             })
             .then(() => this.setState({
                 restaurantInfo: restaurantNames
@@ -26,7 +26,9 @@ class Home extends Component {
     render() {
         return (
             <div className="App">
-                <div className="main">{this.state.restaurantInfo}</div>
+                <div className="main">{this.state.restaurantInfo.map(restaurant =>
+                    <div>{restaurant.name}</div>
+                )}</div>
             </div>
         );
     }
