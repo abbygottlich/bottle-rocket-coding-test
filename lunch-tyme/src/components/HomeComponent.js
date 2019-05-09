@@ -26,11 +26,12 @@ class Home extends Component {
             }))
     }
 
-    showDetailToggle = () => {
+    showDetailToggle = (e, restaurant) => {
         if (this.state.showDetail === false) {
             this.setState({
                 showDetail: true
             })
+            console.log(restaurant)
         }
     }
 
@@ -39,7 +40,7 @@ class Home extends Component {
             return (
                 <div className="App">
                     <div className="main">{this.state.restaurantInfo.map(restaurant =>
-                        <div onClick={this.showDetailToggle} className="restaurant-block">
+                        <div onClick={() => { this.showDetailToggle(this, restaurant) }} className="restaurant-block">
                             <img className="restaurant-image" src={restaurant.backgroundImageURL} alt={restaurant.category}></img>
                             {/* using multiple gradients because one was not dark enough */}
                             <div className="gradient"></div>
