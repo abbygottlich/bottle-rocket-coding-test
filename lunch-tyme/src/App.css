@@ -72,6 +72,7 @@
   height: 30px;
   background-image: url("cuts/icon_map@2x.png");
   background-size: 30px;
+  background-repeat: no-repeat;
 }
 
 /* restaurant blocks home page */
@@ -125,4 +126,38 @@
 .footer {
   height: 50px;
   background-color: #2A2A2A;
+}
+
+.icons-and-text {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 7px;
+}
+
+.lunch-icon, .internets-icon, .lunch-icon-2, .internets-icon-2 {
+  width: 25px;
+  height: 27px;
+  background-image: url("cuts/tab_lunch@2x.png");
+  background-size: 25px;
+  background-repeat: no-repeat;
+  margin: auto;
+}
+
+.internets-icon, .internets-icon-2 {
+  width: 20px;
+  height: 25px;
+  background-image: url("cuts/tab_internets@2x.png");
+  background-size: 20px;
+}
+
+.lunch-icon-2, .internets-icon-2 {
+  opacity: 0.5;
+}
+
+.lunch-text, .internets-text {
+  font-family: "Avenir Next";
+  font-size: 10px;
+  color: #FFFFFF;
+  text-align: center;
 }
