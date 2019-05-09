@@ -4,8 +4,16 @@ class Header extends Component {
 
     render() {
         return (
-            <div className="home-header">
-                <div className="app-name-icon-container">
+            // <div className="header">
+            //     <div className="app-name-icon-container">
+            //         <div className="app-name">Lunch Tyme</div>
+            //         <div className="map-icon"></div>
+            //     </div>
+            // </div>
+
+            <div className="header">
+                <div className="arrow-name-map-container">
+                    <div className="back-arrow"></div>
                     <div className="app-name">Lunch Tyme</div>
                     <div className="map-icon"></div>
                 </div>
