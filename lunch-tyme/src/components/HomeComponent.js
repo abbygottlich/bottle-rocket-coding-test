@@ -29,7 +29,13 @@ class Home extends Component {
             <div className="App">
                 <div className="main">{this.state.restaurantInfo.map(restaurant =>
                     <div className="restaurant-block">
-                        <img src={restaurant.backgroundImageURL} alt={restaurant.category}></img>
+                        <img className="restaurant-image" src={restaurant.backgroundImageURL} alt={restaurant.category}></img>
+                        {/* using multiple gradients because one was not dark enough */}
+                        <div className="gradient"></div>
+                        <div className="gradient"></div>
+                        <div className="gradient"></div>
+                        <div className="gradient"></div>
+                        <div className="gradient"></div>
                         <div className="restaurant-name-and-category">
                             <div className="restaurant-name">{restaurant.name}</div>
                             <div className="restaurant-category">{restaurant.category}</div>
