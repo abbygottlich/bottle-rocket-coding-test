@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
+import Detail from "./DetailComponent";
 
 class Home extends Component {
 
     state = {
-        restaurantInfo: []
+        restaurantInfo: [],
+        showDetail: false
     }
 
     componentDidMount = () => {
 
-        let restaurantNames = []
+        let restaurants = []
 
         fetch('http://sandbox.bottlerocketapps.com/BR_iOS_CodingExam_2015_Server/restaurants.json')
             .then((response) => {
@@ -16,34 +18,43 @@ class Home extends Component {
             })
             .then((data) => {
                 console.log(data);
-                data.restaurants.map(info => restaurantNames.push(info))
+                data.restaurants.map(info => restaurants.push(info))
             })
             .then(() => this.setState({
-                restaurantInfo: restaurantNames
+                restaurantInfo: restaurants
             }))
     }
 
-    render() {
+    showDetailToggle = () => {
+        if (this.state.showDetail === false) {
+            this.setState({
+                showDetail: true
+            })
+        }
+    }
 
-        return (
-            <div className="App">
-                <div className="main">{this.state.restaurantInfo.map(restaurant =>
-                    <div className="restaurant-block">
-                        <img className="restaurant-image" src={restaurant.backgroundImageURL} alt={restaurant.category}></img>
-                        {/* using multiple gradients because one was not dark enough */}
-                        <div className="gradient"></div>
-                        <div className="gradient"></div>
-                        <div className="gradient"></div>
-                        <div className="gradient"></div>
-                        <div className="gradient"></div>
-                        <div className="restaurant-name-and-category">
-                            <div className="restaurant-name">{restaurant.name}</div>
-                            <div className="restaurant-category">{restaurant.category}</div>
+    render() {
+        if (this.state.showDetail === false) {
+            return (
+                <div className="App">
+                    <div className="main">{this.state.restaurantInfo.map(restaurant =>
+                        <div onClick={this.showDetailToggle} className="restaurant-block">
+                            <img className="restaurant-image" src={restaurant.backgroundImageURL} alt={restaurant.category}></img>
+                            {/* using multiple gradients because one was not dark enough */}
+                            <div className="gradient"></div>
+                            <div className="gradient"></div>
+                            <div className="gradient"></div>
+                            <div className="gradient"></div>
+                            <div className="gradient"></div>
+                            <div className="restaurant-name-and-category">
+                                <div className="restaurant-name">{restaurant.name}</div>
+                                <div className="restaurant-category">{restaurant.category}</div>
+                            </div>
                         </div>
-                    </div>
-                )}</div>
-            </div>
-        );
+                    )}</div>
+                </div>
+            )
+        } else return <Detail />
     }
 }
 

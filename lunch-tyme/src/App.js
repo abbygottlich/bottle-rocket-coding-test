@@ -2,8 +2,9 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter, Route } from "react-router-dom";
 import Header from "./components/HeaderComponent";
-import HomeComponent from "./components/HomeComponent";
-import Footer from "./components/FooterComponent"
+import Home from "./components/HomeComponent";
+import Detail from "./components/DetailComponent";
+import Footer from "./components/FooterComponent";
 
 function App() {
   return (
@@ -12,7 +13,8 @@ function App() {
         <div className="header-container">
           <Header />
         </div>
-        <Route exact path="/" component={HomeComponent} />
+        <Route exact path="/" component={Home} />
+        <Route exact path="/detail" component={Detail} />
         <div className="footer-container">
           <Footer />
         </div>

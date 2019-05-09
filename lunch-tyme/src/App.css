@@ -119,6 +119,18 @@
   margin-bottom: 6px;
 }
 
+/* detail page */
+.map {
+  height: 180px;
+  background-color: red;
+  padding-top: 60px;
+}
+
+.restaurant-name-header {
+  height: 60px;
+  background-color: #34B379;
+}
+
 /* footer */
 .footer-container {
   position: fixed;
