@@ -8,7 +8,7 @@ class Detail extends Component {
                 <div className="map"></div>
                 <div className="restaurant-name-header"></div>
                 <div className="restaurant-info">
-                    <div className="address"></div>
+                    <div className="address">{this.props.singleRestaurant.name}</div>
                     <div className="number"></div>
                     <div className="twitter"></div>
                 </div>

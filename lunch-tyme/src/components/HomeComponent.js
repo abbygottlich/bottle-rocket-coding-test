@@ -29,7 +29,8 @@ class Home extends Component {
     showDetailToggle = (e, restaurant) => {
         if (this.state.showDetail === false) {
             this.setState({
-                showDetail: true
+                showDetail: true,
+                singleRestaurant: restaurant
             })
             console.log(restaurant)
         }
