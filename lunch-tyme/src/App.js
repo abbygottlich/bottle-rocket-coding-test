@@ -14,7 +14,7 @@ function App() {
           <Header />
         </div>
         <Route exact path="/" component={Home} />
-        <Route exact path="/detail" component={Detail} />
+        <Route path="/detail" component={Detail} />
         <div className="footer-container">
           <Footer />
         </div>
