@@ -11,11 +11,19 @@ class Header extends Component {
             //     </div>
             // </div>
 
+            // <div className="header">
+            //     <div className="arrow-name-map-container">
+            //         <div className="back-arrow"></div>
+            //         <div className="app-name">Lunch Tyme</div>
+            //         <div className="map-icon"></div>
+            //     </div>
+            // </div>
+
             <div className="header">
-                <div className="arrow-name-map-container">
+                <div className="arrows">
                     <div className="back-arrow"></div>
-                    <div className="app-name">Lunch Tyme</div>
-                    <div className="map-icon"></div>
+                    <div className="refresh-arrow"></div>
+                    <div className="forward-arrow"></div>
                 </div>
             </div>
         );

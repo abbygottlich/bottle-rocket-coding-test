@@ -26,11 +26,32 @@
   padding-top: 15px;
 }
 
-.back-arrow {
+.arrows {
+  width: 30%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 25px;
+  padding-top: 25px;
+}
+
+.back-arrow, .forward-arrow {
   width: 10px;
   height: 20px;
   background-image: url("cuts/ic_webBack@2x.png");
   background-size: 10px;
+  background-repeat: no-repeat;
+}
+
+.forward-arrow {
+  background-image: url("cuts/ic_webForward@2x.png");
+}
+
+.refresh-arrow {
+  width: 25px;
+  height: 25px;
+  background-image: url("cuts/ic_webRefresh@2x.png");
+  background-size: 25px;
   background-repeat: no-repeat;
 }
 
