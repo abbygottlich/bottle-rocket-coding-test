@@ -1,3 +1,37 @@
+/* ---------------------------- MOBILE ---------------------------- */
+
+/* header home page */
+.home-header {
+  height: 60px;
+  width: 100%;
+  background-color: #43E895;
+}
+
+.app-name-icon-container {
+  display: flex;
+  width: 58%;
+  justify-content: space-between;
+  align-items: center;
+  float: right;
+  margin-top: 20px;
+  margin-right: 15px;
+}
+
+.app-name {
+  font-family: "Avenir Next";
+  font-size: 17px;
+  font-weight: bold;
+  color: #FFFFFF;
+}
+
+.map-icon {
+  width: 30px;
+  height: 30px;
+  background-image: url("cuts/icon_map@2x.png");
+  background-size: 30px;
+}
+
+/* restaurant blocks home page */
 .restaurant-block {
   position: relative;
   height: fit-content;
