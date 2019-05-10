@@ -1,7 +1,4 @@
 import React from 'react';
-import DetailHeader from "./DetailHeaderComponent";
-import Footer from "./FooterComponent";
-import SimpleMap from "./MapComponent";
 
 function Detail(props) {
     return (
