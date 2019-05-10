@@ -41,9 +41,6 @@ class Home extends Component {
     ListComponent = () => {
         return (
             <div>
-                <div className="header-container">
-                    <HomeHeader />
-                </div>
                 <div className="main">{this.state.restaurantInfo.map(restaurant =>
                     <div onClick={() => { this.showDetailToggle(this, restaurant) }} className="restaurant-block">
                         <img className="restaurant-image" src={restaurant.backgroundImageURL} alt={restaurant.category}></img>
@@ -66,9 +63,6 @@ class Home extends Component {
     DetailComponent = () => {
         return (
             <div>
-                <div className="header-container">
-                    <DetailHeader />
-                </div>
                 <div className="detail-wrapper">
                     <div className="map"><SimpleMap restaurant={this.state.singleRestaurant} /></div>
                     <div className="restaurant-name-header">
@@ -96,6 +90,9 @@ class Home extends Component {
     render() {
         return (
             <div className="App">
+                <div className="header-container">
+                    <HomeHeader />
+                </div>
                 <div>{this.ListComponent()}</div>
                 <div>{this.DetailComponent()}</div>
             </div>
