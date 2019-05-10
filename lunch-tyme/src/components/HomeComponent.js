@@ -6,6 +6,8 @@ class Home extends Component {
 
     state = {
         restaurantInfo: [],
+        columnLeft: [],
+        columnRight: [],
         showDetail: false,
         singleRestaurant: {},
         detailWrapperClass: "detail-wrapper-hidden",
@@ -13,9 +15,11 @@ class Home extends Component {
         headerArrow: false
     }
 
-    // ---------------------------------- FETCHING DATA ----------------------------------
+    // ---------------------------------- FETCHING DATA AND CREATING COLUMNS ----------------------------------
     componentDidMount = () => {
-        let restaurants = []
+        const restaurants = []
+        const leftColumnItems = []
+        const rightColumnItems = []
 
         fetch('http://sandbox.bottlerocketapps.com/BR_iOS_CodingExam_2015_Server/restaurants.json')
             .then((response) => {
@@ -28,6 +32,23 @@ class Home extends Component {
             .then(() => this.setState({
                 restaurantInfo: restaurants
             }))
+            .then(() => {
+                for (let i = 0; i < this.state.restaurantInfo.length; i++) {
+                    let sortedRestaurant = this.state.restaurantInfo[i]
+                    if (i % 2 === 0) {
+                        leftColumnItems.push(sortedRestaurant)
+                    } else {
+                        rightColumnItems.push(sortedRestaurant)
+                    }
+                }
+                // console.log("left", leftColumnItems, "right", rightColumnItems)
+            }
+            )
+            .then(() => this.setState({
+                columnLeft: leftColumnItems,
+                columnRight: rightColumnItems
+            }))
+            .then(console.log("left", leftColumnItems, "right", rightColumnItems))
     }
 
     // ---------------------------------- LISTING OUT ALL OF THE RESTAURANTS ----------------------------------
@@ -103,22 +124,6 @@ class Home extends Component {
         </div>
     }
 
-    DoubleListComponent = () => {
-        const leftColumnItems = []
-        const rightColumnItems = []
-
-        for (let i = 0; i < this.state.restaurantInfo.length; i++) {
-            let sortedRestaurant = this.state.restaurantInfo[i]
-            if (i % 2 === 0) {
-                leftColumnItems.push(sortedRestaurant)
-            } else {
-                rightColumnItems.push(sortedRestaurant)
-            }
-        }
-        console.log("left", leftColumnItems, "right", rightColumnItems)
-        return <div>hello</div>
-    }
-
     // columnSetup = () => {
     //     const columnConditional = (x) => {
     //         if (x.matches) { // If media query matches
@@ -142,7 +147,7 @@ class Home extends Component {
                     <HomeHeader headerArrow={this.state.headerArrow} />
                 </div>
                 {this.showMobileView()}
-                {this.DoubleListComponent()}
+                {/* {this.DoubleListComponent()} */}
             </div>
         )
     }
