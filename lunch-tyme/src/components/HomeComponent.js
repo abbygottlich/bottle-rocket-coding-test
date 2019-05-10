@@ -7,7 +7,8 @@ class Home extends Component {
     state = {
         restaurantInfo: [],
         showDetail: false,
-        singleRestaurant: {}
+        singleRestaurant: {},
+        detailWrapperClass: "detail-wrapper-hidden"
     }
 
     componentDidMount = () => {
@@ -31,7 +32,8 @@ class Home extends Component {
         if (this.state.showDetail === false) {
             this.setState({
                 showDetail: true,
-                singleRestaurant: restaurant
+                singleRestaurant: restaurant,
+                detailWrapperClass: "detail-wrapper-visible"
             })
             console.log(restaurant)
         }
@@ -62,7 +64,7 @@ class Home extends Component {
     DetailComponent = () => {
         return (
             <div>
-                <div className="detail-wrapper">
+                <div className={this.state.detailWrapperClass}>
                     <div className="map"></div>
                     {/* <SimpleMap restaurant={this.state.singleRestaurant} /> */}
                     <div className="restaurant-name-header">

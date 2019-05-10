@@ -1,6 +1,5 @@
 /* ---------------------------- MOBILE ---------------------------- */
 .component-wrapper {
-  /* display: flex; */
   overflow: hidden;
   width: 100vw;
 }
@@ -127,12 +126,17 @@
 }
 
 /* detail page */
-.detail-wrapper {
+.detail-wrapper-hidden, .detail-wrapper-visible {
   position: absolute;
   width: 100vw;
   height: 100vh;
   background-color: #FFFFFF;
   padding-top: 60px;
+  visibility: hidden;
+}
+
+.detail-wrapper-visible {
+  visibility: visible;
 }
 
 .map {
