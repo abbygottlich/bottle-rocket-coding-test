@@ -177,23 +177,11 @@ class Home extends Component {
         </div>
     }
 
-    // showSpecificView = () => {
-    //     const columnConditional = (x) => {
-    //         if (x.matches) { // If media query matches
-    //             return <div>tablet</div>
-    //             // this.tabletPlusView()
-    //         } else {
-    //             return <div>mobile</div>
-    //             // this.showMobileView()
-    //         }
-    //     }
-
-    //     let x = window.matchMedia("(min-width: 768px)")
-
-    //     columnConditional(x)
-
-    //     x.addListener(columnConditional)
-    // }
+    showSpecificView = () => {
+        if (window.innerWidth <= 375) {
+            return this.showMobileView()
+        } else return this.tabletPlusView()
+    }
 
     render() {
         return (
@@ -201,7 +189,7 @@ class Home extends Component {
                 <div className="header-container">
                     <HomeHeader headerArrow={this.state.headerArrow} />
                 </div>
-                {this.showMobileView()}
+                {this.showSpecificView()}
             </div>
         )
     }
