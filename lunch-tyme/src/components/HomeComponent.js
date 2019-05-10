@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Detail from "./DetailComponent";
+import HomeHeader from "./HomeHeaderComponent";
+import Footer from "./FooterComponent";
 
 class Home extends Component {
 
@@ -40,6 +42,9 @@ class Home extends Component {
         if (this.state.showDetail === false) {
             return (
                 <div className="App">
+                    <div className="header-container">
+                        <HomeHeader />
+                    </div>
                     <div className="main">{this.state.restaurantInfo.map(restaurant =>
                         <div onClick={() => { this.showDetailToggle(this, restaurant) }} className="restaurant-block">
                             <img className="restaurant-image" src={restaurant.backgroundImageURL} alt={restaurant.category}></img>
@@ -55,6 +60,9 @@ class Home extends Component {
                             </div>
                         </div>
                     )}</div>
+                    <div className="footer-container">
+                        <Footer />
+                    </div>
                 </div>
             )
         } else return <Detail singleRestaurant={this.state.singleRestaurant} />
