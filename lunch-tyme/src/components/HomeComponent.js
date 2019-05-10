@@ -6,6 +6,8 @@ class Home extends Component {
 
     state = {
         restaurantInfo: [],
+        columnLeft: [],
+        columnRight: [],
         showDetail: false,
         singleRestaurant: {},
         detailWrapperClass: "detail-wrapper-hidden",
@@ -65,6 +67,39 @@ class Home extends Component {
         )
     }
 
+    DoubleListComponent = () => {
+
+        // const leftColumnItems = []
+        // const rightColumnItems = []
+
+        // for (let i = 0; i < this.state.restaurantInfo.length; i++) {
+        //     if (i % 2 === 0) {
+        //         leftColumnItems.push(i)
+        //     } else {
+        //         rightColumnItems.push(i)
+        //     }
+        // }
+        // this.setState({
+        //     leftColumn: leftColumnItems,
+        //     rightColumn: rightColumnItems
+        // })
+        // console.log("left", this.state.leftColumn, "right", this.state.rightColumn)
+
+        const columnConditional = (x) => {
+            if (x.matches) { // If media query matches
+                document.body.style.backgroundColor = "yellow";
+            } else {
+                document.body.style.backgroundColor = "pink";
+            }
+        }
+
+        let x = window.matchMedia("(min-width: 768px)")
+
+        columnConditional(x)
+
+        x.addListener(columnConditional)
+    }
+
     DetailComponent = () => {
         return (
             <div>
@@ -95,13 +130,14 @@ class Home extends Component {
     render() {
         return (
             <div className="App">
+                {this.DoubleListComponent()}
                 <div className="header-container">
                     <HomeHeader headerArrow={this.state.headerArrow} />
                 </div>
-                <div className="component-wrapper">
+                {/* <div className="component-wrapper">
                     <div className="list-component">{this.ListComponent()}</div>
                     <div className="detail-component">{this.DetailComponent()}</div>
-                </div>
+                </div> */}
             </div>
         )
     }
