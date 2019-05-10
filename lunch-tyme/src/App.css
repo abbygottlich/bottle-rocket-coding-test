@@ -128,15 +128,16 @@
 /* detail page */
 .detail-wrapper-hidden, .detail-wrapper-visible {
   position: absolute;
+  left: -100vw;
   width: 100vw;
   height: 100vh;
   background-color: #FFFFFF;
   padding-top: 60px;
-  visibility: hidden;
+  transition: left 0.5s;
 }
 
 .detail-wrapper-visible {
-  visibility: visible;
+  left: 0;
 }
 
 .map {
