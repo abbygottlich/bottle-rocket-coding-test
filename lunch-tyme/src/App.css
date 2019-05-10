@@ -1,6 +1,13 @@
 /* ---------------------------- MOBILE ---------------------------- */
+.component-wrapper {
+  display: flex;
+  overflow: hidden;
+  width: 100vw;
+}
+
 .main {
   position: absolute;
+  width: 100vw;
   padding-top: 60px;
 }
 
@@ -121,11 +128,13 @@
 
 /* detail page */
 .detail-wrapper {
-  height: 86.5vh;
+  /* height: 86.5vh; */
+  padding-top: 60px;
 }
 
 .map {
   height: 180px;
+  background-color: red;
 }
 
 .restaurant-name-header {
