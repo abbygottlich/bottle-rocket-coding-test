@@ -27,7 +27,6 @@ function Detail(props) {
                     <div className="twitter">{props.singleRestaurant.contact && props.singleRestaurant.contact.twitter ? "@" + props.singleRestaurant.contact.twitter : null}</div>
                 </div>
             </div>
-            <Footer />
         </div>
     );
 }

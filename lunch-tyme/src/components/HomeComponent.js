@@ -60,9 +60,6 @@ class Home extends Component {
                             </div>
                         </div>
                     )}</div>
-                    <div className="footer-container">
-                        <Footer />
-                    </div>
                 </div>
             )
         } else return <Detail singleRestaurant={this.state.singleRestaurant} />
