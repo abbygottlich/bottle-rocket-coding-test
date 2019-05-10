@@ -41,7 +41,6 @@ class Home extends Component {
                         rightColumnItems.push(sortedRestaurant)
                     }
                 }
-                // console.log("left", leftColumnItems, "right", rightColumnItems)
             }
             )
             .then(() => this.setState({
@@ -51,7 +50,21 @@ class Home extends Component {
             .then(console.log("left", leftColumnItems, "right", rightColumnItems))
     }
 
-    // ---------------------------------- LISTING OUT ALL OF THE RESTAURANTS ----------------------------------
+    // ---------------------------------- ONCLICK FUNCTION FOR EACH RESTAURANT ----------------------------------
+    showDetailToggle = (e, restaurant) => {
+        if (this.state.showDetail === false) {
+            this.setState({
+                showDetail: true,
+                singleRestaurant: restaurant,
+                detailWrapperClass: "detail-wrapper-visible",
+                mainClass: "main-hidden",
+                headerArrow: true
+            })
+            console.log(restaurant)
+        }
+    }
+
+    // ---------------------------------- LISTING OUT ALL OF THE RESTAURANTS - MOBILE ----------------------------------
     ListComponent = () => {
         return (
             <div>
@@ -74,18 +87,49 @@ class Home extends Component {
         )
     }
 
-    // ---------------------------------- ONCLICK FUNCTION FOR EACH RESTAURANT ----------------------------------
-    showDetailToggle = (e, restaurant) => {
-        if (this.state.showDetail === false) {
-            this.setState({
-                showDetail: true,
-                singleRestaurant: restaurant,
-                detailWrapperClass: "detail-wrapper-visible",
-                mainClass: "main-hidden",
-                headerArrow: true
-            })
-            console.log(restaurant)
-        }
+    // ---------------------------------- LISTING OUT ALL OF THE RESTAURANTS - TABLET+ ----------------------------------
+    columnLeftComponent = () => {
+        return (
+            <div>
+                <div className={this.state.mainClass}>{this.state.columnLeft.map(restaurant =>
+                    <div onClick={() => { this.showDetailToggle(this, restaurant) }} className="restaurant-block">
+                        <img className="restaurant-image" src={restaurant.backgroundImageURL} alt={restaurant.category}></img>
+                        {/* using multiple gradients because one was not dark enough */}
+                        <div className="gradient"></div>
+                        <div className="gradient"></div>
+                        <div className="gradient"></div>
+                        <div className="gradient"></div>
+                        <div className="gradient"></div>
+                        <div className="restaurant-name-and-category">
+                            <div className="restaurant-name">{restaurant.name}</div>
+                            <div className="restaurant-category">{restaurant.category}</div>
+                        </div>
+                    </div>
+                )}</div>
+            </div>
+        )
+    }
+
+    columnRightComponent = () => {
+        return (
+            <div>
+                <div className={this.state.mainClass}>{this.state.columnRight.map(restaurant =>
+                    <div onClick={() => { this.showDetailToggle(this, restaurant) }} className="restaurant-block">
+                        <img className="restaurant-image" src={restaurant.backgroundImageURL} alt={restaurant.category}></img>
+                        {/* using multiple gradients because one was not dark enough */}
+                        <div className="gradient"></div>
+                        <div className="gradient"></div>
+                        <div className="gradient"></div>
+                        <div className="gradient"></div>
+                        <div className="gradient"></div>
+                        <div className="restaurant-name-and-category">
+                            <div className="restaurant-name">{restaurant.name}</div>
+                            <div className="restaurant-category">{restaurant.category}</div>
+                        </div>
+                    </div>
+                )}</div>
+            </div>
+        )
     }
 
     // ---------------------------------- SHOWING CLICKED RESTAURANT DETAILS ----------------------------------
@@ -124,12 +168,23 @@ class Home extends Component {
         </div>
     }
 
-    // columnSetup = () => {
+    // ---------------------------------- ALL TABLET+ FUNCTIONALITY ----------------------------------
+    tabletPlusView = () => {
+        return <div className="tablet-component-wrapper">
+            <div className="left-column">{this.columnLeftComponent()}</div>
+            <div className="right-column">{this.columnRightComponent()}</div>
+            <div className="detail-component">{this.DetailComponent()}</div>
+        </div>
+    }
+
+    // showSpecificView = () => {
     //     const columnConditional = (x) => {
     //         if (x.matches) { // If media query matches
-    //             return this.DoubleListComponent()
+    //             return <div>tablet</div>
+    //             // this.tabletPlusView()
     //         } else {
-    //             return this.showMobileView()
+    //             return <div>mobile</div>
+    //             // this.showMobileView()
     //         }
     //     }
 
@@ -147,7 +202,6 @@ class Home extends Component {
                     <HomeHeader headerArrow={this.state.headerArrow} />
                 </div>
                 {this.showMobileView()}
-                {/* {this.DoubleListComponent()} */}
             </div>
         )
     }
