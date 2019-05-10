@@ -9,7 +9,8 @@ class Home extends Component {
         showDetail: false,
         singleRestaurant: {},
         detailWrapperClass: "detail-wrapper-hidden",
-        mainClass: "main"
+        mainClass: "main",
+        headerArrow: false
     }
 
     componentDidMount = () => {
@@ -35,7 +36,8 @@ class Home extends Component {
                 showDetail: true,
                 singleRestaurant: restaurant,
                 detailWrapperClass: "detail-wrapper-visible",
-                mainClass: "main-hidden"
+                mainClass: "main-hidden",
+                headerArrow: true
             })
             console.log(restaurant)
         }
@@ -94,7 +96,7 @@ class Home extends Component {
         return (
             <div className="App">
                 <div className="header-container">
-                    <HomeHeader />
+                    <HomeHeader headerArrow={this.state.headerArrow} />
                 </div>
                 <div className="component-wrapper">
                     <div className="list-component">{this.ListComponent()}</div>

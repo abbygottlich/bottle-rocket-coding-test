@@ -9,11 +9,12 @@
   left: 0;
   width: 100vw;
   padding-top: 60px;
-  transition: left 0.5s;
+  transition: left 0.5s, width 0.5s;
 }
 
 .main-hidden {
   left: 100vw;
+  width: 0vw
 }
 
 /* header */
@@ -30,12 +31,11 @@
 
 .app-name-icon-container {
   display: flex;
-  width: 58%;
+  width: 64%;
   justify-content: space-between;
   align-items: center;
-  float: right;
   margin-top: 20px;
-  margin-right: 15px;
+  margin-left: 110px;
 }
 
 .arrow-name-map-container {
@@ -44,7 +44,6 @@
   align-items: center;
   margin-right: 15px;
   margin-left: 15px;
-  padding-top: 15px;
 }
 
 .arrows {
@@ -56,24 +55,13 @@
   padding-top: 25px;
 }
 
-.back-arrow, .forward-arrow {
+.back-arrow {
   width: 10px;
   height: 20px;
   background-image: url("cuts/ic_webBack@2x.png");
   background-size: 10px;
   background-repeat: no-repeat;
-}
-
-.forward-arrow {
-  background-image: url("cuts/ic_webForward@2x.png");
-}
-
-.refresh-arrow {
-  width: 25px;
-  height: 25px;
-  background-image: url("cuts/ic_webRefresh@2x.png");
-  background-size: 25px;
-  background-repeat: no-repeat;
+  margin-top: 15px;
 }
 
 .app-name {
@@ -148,6 +136,14 @@
 
 .map {
   height: 180px;
+}
+
+.map-marker {
+  width: 30px;
+  height: 30px;
+  background-image: url("cuts/icons8-marker-48.png");
+  background-size: 30px;
+  background-repeat: no-repeat;
 }
 
 .restaurant-name-header {
