@@ -8,7 +8,8 @@ class Home extends Component {
         restaurantInfo: [],
         showDetail: false,
         singleRestaurant: {},
-        detailWrapperClass: "detail-wrapper-hidden"
+        detailWrapperClass: "detail-wrapper-hidden",
+        mainClass: "main"
     }
 
     componentDidMount = () => {
@@ -33,7 +34,8 @@ class Home extends Component {
             this.setState({
                 showDetail: true,
                 singleRestaurant: restaurant,
-                detailWrapperClass: "detail-wrapper-visible"
+                detailWrapperClass: "detail-wrapper-visible",
+                mainClass: "main-hidden"
             })
             console.log(restaurant)
         }
@@ -42,7 +44,7 @@ class Home extends Component {
     ListComponent = () => {
         return (
             <div>
-                <div className="main">{this.state.restaurantInfo.map(restaurant =>
+                <div className={this.state.mainClass}>{this.state.restaurantInfo.map(restaurant =>
                     <div onClick={() => { this.showDetailToggle(this, restaurant) }} className="restaurant-block">
                         <img className="restaurant-image" src={restaurant.backgroundImageURL} alt={restaurant.category}></img>
                         {/* using multiple gradients because one was not dark enough */}

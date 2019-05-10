@@ -4,17 +4,23 @@
   width: 100vw;
 }
 
-.main {
+.main, .main-hidden {
   position: absolute;
+  left: 0;
   width: 100vw;
   padding-top: 60px;
+  transition: left 0.5s;
+}
+
+.main-hidden {
+  left: 100vw;
 }
 
 /* header */
 .header-container {
   position: fixed;
   z-index: 1;
-  width: 100%;
+  width: 100vw;
 }
 
 .header {
