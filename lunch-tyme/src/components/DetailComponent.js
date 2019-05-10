@@ -1,13 +1,14 @@
 import React from 'react';
 import DetailHeader from "./DetailHeaderComponent";
 import Footer from "./FooterComponent";
+import SimpleMap from "./MapComponent";
 
 function Detail(props) {
     return (
         <div>
             <DetailHeader />
             <div className="detail-wrapper">
-                <div className="map"></div>
+                <div className="map"><SimpleMap restaurant={props.singleRestaurant} /></div>
                 <div className="restaurant-name-header">
                     <div className="detail-restaurant-name">{props.singleRestaurant.name}</div>
                     <div className="detail-restaurant-category">{props.singleRestaurant.category}</div>
