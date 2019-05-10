@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import HomeHeader from "./HomeHeaderComponent";
-import DetailHeader from "./DetailHeaderComponent";
 import SimpleMap from "./MapComponent";
 
 class Home extends Component {
@@ -93,8 +92,8 @@ class Home extends Component {
                 <div className="header-container">
                     <HomeHeader />
                 </div>
-                <div>{this.ListComponent()}</div>
-                <div>{this.DetailComponent()}</div>
+                <div className="list-component">{this.ListComponent()}</div>
+                <div className="detail-component">{this.DetailComponent()}</div>
             </div>
         )
     }

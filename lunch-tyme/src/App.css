@@ -1,5 +1,6 @@
 /* ---------------------------- MOBILE ---------------------------- */
 .main {
+  position: absolute;
   padding-top: 60px;
 }
 
