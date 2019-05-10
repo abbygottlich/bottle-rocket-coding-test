@@ -13,8 +13,8 @@ class Home extends Component {
         headerArrow: false
     }
 
+    // ---------------------------------- FETCHING DATA ----------------------------------
     componentDidMount = () => {
-
         let restaurants = []
 
         fetch('http://sandbox.bottlerocketapps.com/BR_iOS_CodingExam_2015_Server/restaurants.json')
@@ -30,19 +30,7 @@ class Home extends Component {
             }))
     }
 
-    showDetailToggle = (e, restaurant) => {
-        if (this.state.showDetail === false) {
-            this.setState({
-                showDetail: true,
-                singleRestaurant: restaurant,
-                detailWrapperClass: "detail-wrapper-visible",
-                mainClass: "main-hidden",
-                headerArrow: true
-            })
-            console.log(restaurant)
-        }
-    }
-
+    // ---------------------------------- LISTING OUT ALL OF THE RESTAURANTS ----------------------------------
     ListComponent = () => {
         return (
             <div>
@@ -65,45 +53,21 @@ class Home extends Component {
         )
     }
 
-    showMobileView = () => {
-        return <div className="component-wrapper">
-            <div className="list-component">{this.ListComponent()}</div>
-            <div className="detail-component">{this.DetailComponent()}</div>
-        </div>
-    }
-
-    DoubleListComponent = () => {
-
-        const leftColumnItems = []
-        const rightColumnItems = []
-
-        for (let i = 0; i < this.state.restaurantInfo.length; i++) {
-            let sortedRestaurant = this.state.restaurantInfo[i]
-            if (i % 2 === 0) {
-                leftColumnItems.push(sortedRestaurant)
-            } else {
-                rightColumnItems.push(sortedRestaurant)
-            }
+    // ---------------------------------- ONCLICK FUNCTION FOR EACH RESTAURANT ----------------------------------
+    showDetailToggle = (e, restaurant) => {
+        if (this.state.showDetail === false) {
+            this.setState({
+                showDetail: true,
+                singleRestaurant: restaurant,
+                detailWrapperClass: "detail-wrapper-visible",
+                mainClass: "main-hidden",
+                headerArrow: true
+            })
+            console.log(restaurant)
         }
-        console.log("left", leftColumnItems, "right", rightColumnItems)
     }
 
-    columnSetup = () => {
-        const columnConditional = (x) => {
-            if (x.matches) { // If media query matches
-                return this.DoubleListComponent()
-            } else {
-                return this.showMobileView()
-            }
-        }
-
-        let x = window.matchMedia("(min-width: 768px)")
-
-        columnConditional(x)
-
-        x.addListener(columnConditional)
-    }
-
+    // ---------------------------------- SHOWING CLICKED RESTAURANT DETAILS ----------------------------------
     DetailComponent = () => {
         return (
             <div>
@@ -130,6 +94,46 @@ class Home extends Component {
             </div>
         );
     }
+
+    // ---------------------------------- ALL MOBILE FUNCTIONALITY ----------------------------------
+    showMobileView = () => {
+        return <div className="component-wrapper">
+            <div className="list-component">{this.ListComponent()}</div>
+            <div className="detail-component">{this.DetailComponent()}</div>
+        </div>
+    }
+
+    DoubleListComponent = () => {
+        const leftColumnItems = []
+        const rightColumnItems = []
+
+        for (let i = 0; i < this.state.restaurantInfo.length; i++) {
+            let sortedRestaurant = this.state.restaurantInfo[i]
+            if (i % 2 === 0) {
+                leftColumnItems.push(sortedRestaurant)
+            } else {
+                rightColumnItems.push(sortedRestaurant)
+            }
+        }
+        console.log("left", leftColumnItems, "right", rightColumnItems)
+        return <div>hello</div>
+    }
+
+    // columnSetup = () => {
+    //     const columnConditional = (x) => {
+    //         if (x.matches) { // If media query matches
+    //             return this.DoubleListComponent()
+    //         } else {
+    //             return this.showMobileView()
+    //         }
+    //     }
+
+    //     let x = window.matchMedia("(min-width: 768px)")
+
+    //     columnConditional(x)
+
+    //     x.addListener(columnConditional)
+    // }
 
     render() {
         return (
