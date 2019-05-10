@@ -67,8 +67,7 @@ class Home extends Component {
         return (
             <div>
                 <div className={this.state.detailWrapperClass}>
-                    <div className="map"></div>
-                    {/* <SimpleMap restaurant={this.state.singleRestaurant} /> */}
+                    <div className="map"><SimpleMap restaurant={this.state.singleRestaurant} /></div>
                     <div className="restaurant-name-header">
                         <div className="detail-restaurant-name">{this.state.singleRestaurant.name ? this.state.singleRestaurant.name : null}</div>
                         <div className="detail-restaurant-category">{this.state.singleRestaurant.category ? this.state.singleRestaurant.category : null}</div>
