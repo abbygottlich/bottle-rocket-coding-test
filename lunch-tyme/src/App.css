@@ -1,6 +1,6 @@
 /* ---------------------------- MOBILE ---------------------------- */
 .component-wrapper {
-  display: flex;
+  /* display: flex; */
   overflow: hidden;
   width: 100vw;
 }
@@ -128,7 +128,10 @@
 
 /* detail page */
 .detail-wrapper {
-  /* height: 86.5vh; */
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: #FFFFFF;
   padding-top: 60px;
 }
 
