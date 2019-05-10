@@ -5,7 +5,7 @@ class DetailHeader extends Component {
         return (
             <div className="header">
                 <div className="arrow-name-map-container">
-                    <div className="back-arrow"></div>
+                    <div onClick={() => { document.location.reload(true) }} className="back-arrow"></div>
                     <div className="app-name">Lunch Tyme</div>
                     <div className="map-icon"></div>
                 </div>
