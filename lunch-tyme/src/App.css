@@ -35,7 +35,7 @@
   justify-content: space-between;
   align-items: center;
   margin-top: 20px;
-  margin-left: 110px;
+  margin-left: 120px;
 }
 
 .arrow-name-map-container {
@@ -265,6 +265,7 @@
 
   .map {
     height: 380px;
+    margin-top: 20px;
   }
 
   .restaurant-name-header {
@@ -294,6 +295,19 @@
     margin-left: 565px;
   }
 
+  .restaurant-name {
+    font-size: 21px;
+  }
+
+  .restaurant-category {
+    font-size: 17px;
+  }
+
+  .restaurant-name-and-category {
+    bottom: 12px;
+    left: 18px;
+  }
+
   .map-and-info {
     display: flex;
   }
@@ -301,7 +315,6 @@
   .map {
     height: 87.5vh;
     width: 50vw;
-    margin-top: 20px;
   }
 
   .header-and-info {
