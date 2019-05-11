@@ -171,8 +171,10 @@ class Home extends Component {
     // ---------------------------------- ALL TABLET+ FUNCTIONALITY ----------------------------------
     tabletPlusView = () => {
         return <div className="tablet-component-wrapper">
-            <div className="left-column">{this.columnLeftComponent()}</div>
-            <div className="right-column">{this.columnRightComponent()}</div>
+            <div className="column-wrapper">
+                <div className="left-column">{this.columnLeftComponent()}</div>
+                <div className="right-column">{this.columnRightComponent()}</div>
+            </div>
             <div className="detail-component">{this.DetailComponent()}</div>
         </div>
     }

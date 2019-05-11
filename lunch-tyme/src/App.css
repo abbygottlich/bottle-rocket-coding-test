@@ -223,3 +223,66 @@
   color: #FFFFFF;
   text-align: center;
 }
+
+/* ---------------------------- TABLET ---------------------------- */
+@media only screen and (min-width: 768px) {
+  .column-wrapper {
+    display: flex;
+  }
+
+  .main {
+    position: static;
+    width: 50vw;
+  }
+
+  .header {
+    height: 80px;
+  }
+
+  .back-arrow {
+    width: 20px;
+    height: 30px;
+    background-size: 16px;
+    margin-top: 17px;
+  }
+
+  .app-name {
+    font-size: 21px;
+  }
+
+  .map-icon {
+    width: 40px;
+    height: 40px;
+    background-size: 35px;
+  }
+
+  .app-name-icon-container {
+    width: 57%;
+    margin-left: 310px;
+    margin-top: 23px;
+  }
+
+  .map {
+    height: 380px;
+  }
+
+  .restaurant-name-header {
+    height: 66px;
+    padding-top: 20px;
+  }
+
+  .detail-restaurant-name {
+    font-size: 18px;
+    margin-left: 20px;
+  }
+
+  .detail-restaurant-category {
+    font-size: 16px;
+    margin-left: 20px;
+  }
+
+  .restaurant-info {
+    font-size: 20px;
+    margin-left: 20px;
+  }
+}
