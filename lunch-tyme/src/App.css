@@ -233,6 +233,7 @@
   .main {
     position: static;
     width: 50vw;
+    padding-top: 80px;
   }
 
   .header {
@@ -284,5 +285,12 @@
   .restaurant-info {
     font-size: 20px;
     margin-left: 20px;
+  }
+}
+
+/* ---------------------------- LAPTOP ---------------------------- */
+@media only screen and (min-width: 1024px) {
+  .app-name-icon-container {
+    margin-left: 565px;
   }
 }
