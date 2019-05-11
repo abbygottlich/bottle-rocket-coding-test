@@ -169,7 +169,7 @@ class Home extends Component {
     }
 
     // ---------------------------------- ALL TABLET+ FUNCTIONALITY ----------------------------------
-    tabletPlusView = () => {
+    tabletView = () => {
         return <div className="tablet-component-wrapper">
             <div className="column-wrapper">
                 <div className="left-column">{this.columnLeftComponent()}</div>
@@ -179,10 +179,47 @@ class Home extends Component {
         </div>
     }
 
+    laptopView = () => {
+        return <div className="laptop-component-wrapper">
+            <div className="column-wrapper">
+                <div className="left-column">{this.columnLeftComponent()}</div>
+                <div className="right-column">{this.columnRightComponent()}</div>
+            </div>
+            <div className="detail-component">
+                <div className={this.state.detailWrapperClass}>
+                    <div className="map-and-info">
+                        <div className="header-and-info">
+                            <div className="restaurant-name-header">
+                                <div className="detail-restaurant-name">{this.state.singleRestaurant.name ? this.state.singleRestaurant.name : null}</div>
+                                <div className="detail-restaurant-category">{this.state.singleRestaurant.category ? this.state.singleRestaurant.category : null}</div>
+                            </div>
+                            <div className="restaurant-info">
+                                <div className="address">
+                                    <div className="address-street">{this.state.singleRestaurant.location ? this.state.singleRestaurant.location.address : null}</div>
+                                    <div className="address-city-state">
+                                        {/* if there is a city AND state, return the city with a comma, else, return the city without a comma */}
+                                        <span>{this.state.singleRestaurant.location && this.state.singleRestaurant.location.city && this.state.singleRestaurant.location.state ? this.state.singleRestaurant.location.city + ", " : this.state.singleRestaurant.location && this.state.singleRestaurant.location.city && !this.state.singleRestaurant.location.state ? this.state.singleRestaurant.location.city : null}</span>
+                                        <span>{this.state.singleRestaurant.location && this.state.singleRestaurant.location.state ? this.state.singleRestaurant.location.state : null}</span>
+                                        <span>{this.state.singleRestaurant.location && this.state.singleRestaurant.location.postalCode ? " " + this.state.singleRestaurant.location.postalCode : null}</span>
+                                    </div>
+                                </div>
+                                <div className="number">{this.state.singleRestaurant.contact && this.state.singleRestaurant.contact.formattedPhone ? this.state.singleRestaurant.contact.formattedPhone : null}</div>
+                                <div className="twitter">{this.state.singleRestaurant.contact && this.state.singleRestaurant.contact.twitter ? "@" + this.state.singleRestaurant.contact.twitter : null}</div>
+                            </div>
+                        </div>
+                        <div className="map"><SimpleMap restaurant={this.state.singleRestaurant} /></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
     showSpecificView = () => {
         if (window.innerWidth <= 375) {
             return this.showMobileView()
-        } else return this.tabletPlusView()
+        } else if (window.innerWidth <= 769) {
+            return this.tabletView()
+        } else return this.laptopView()
     }
 
     render() {

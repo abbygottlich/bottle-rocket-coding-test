@@ -293,4 +293,23 @@
   .app-name-icon-container {
     margin-left: 565px;
   }
+
+  .map-and-info {
+    display: flex;
+  }
+
+  .map {
+    height: 87.5vh;
+    width: 50vw;
+    margin-top: 20px;
+  }
+
+  .header-and-info {
+    width: 50vw;
+  }
+
+  .restaurant-name-header {
+    height: 57px;
+    padding-top: 29px;
+  }
 }
